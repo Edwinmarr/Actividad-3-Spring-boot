@@ -5,13 +5,12 @@ import co.edu.udec.act3.edwinmarrugo.gradescrud.business.UserBusiness;
 import co.edu.udec.act3.edwinmarrugo.gradescrud.domain.request.StudentRequest;
 import co.edu.udec.act3.edwinmarrugo.gradescrud.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("users")
+@Controller
 public class UsersController {
     @Autowired
     private UserBusiness userBusiness;
@@ -22,8 +21,15 @@ public class UsersController {
         return userBusiness.showUsers();
     }
 
-    @PostMapping("/registration/student")
-    public ResponseEntity<Void> registerStudent(@RequestBody StudentRequest studentRequest){
-        return registrationBusiness.registerStudent(studentRequest);
+    @PostMapping("registration")
+    public String registerStudent(
+            @ModelAttribute("user") StudentRequest studentRequest){
+        registrationBusiness.registerStudent(studentRequest);
+        return "registration";
+    }
+    @GetMapping("/registration-form")
+    public String registration(
+            @ModelAttribute("user") StudentRequest studentRequest){
+        return "registration";
     }
 }

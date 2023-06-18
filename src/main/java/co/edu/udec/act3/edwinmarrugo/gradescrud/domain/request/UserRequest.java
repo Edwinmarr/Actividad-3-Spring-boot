@@ -1,4 +1,4 @@
-package co.edu.udec.act3.edwinmarrugo.gradescrud.domain;
+package co.edu.udec.act3.edwinmarrugo.gradescrud.domain.request;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
