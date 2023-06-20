@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 @Controller
@@ -23,13 +24,14 @@ public class UsersController {
 
     @PostMapping("registration")
     public String registerStudent(
-            @ModelAttribute("user") StudentRequest studentRequest){
+            @ModelAttribute("user") StudentRequest studentRequest) throws NoSuchAlgorithmException {
         registrationBusiness.registerStudent(studentRequest);
-        return "registration";
+        return "index";
     }
     @GetMapping("/registration-form")
     public String registration(
-            @ModelAttribute("user") StudentRequest studentRequest){
+            @ModelAttribute("user") StudentRequest studentRequest
+    ){
         return "registration";
     }
 }

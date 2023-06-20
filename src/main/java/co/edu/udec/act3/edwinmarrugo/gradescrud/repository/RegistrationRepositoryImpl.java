@@ -16,12 +16,11 @@ public class RegistrationRepositoryImpl implements RegistrationRepository {
     private StudentDao studentDao;
     @Override
     @Transactional
-    public Boolean registerStudent(User user) {
+    public void registerStudent(User user) {
         Student student = new Student();
         student.setCode("");
         student.setUser(user);
         userDao.save(user);
         studentDao.save(student);
-        return true;
     }
 }

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<h1>Welcome to our website!</h1>
+
+<p th:text="'Today is: ' + ${#dates.format(#dates.createNow(), 'dd MMMM yyyy')}"></p>
+
+<ul>
+    <li><a th:href="@{/about}">About</a></li>
+    <li><a th:href="@{/products}">Login</a></li>
+    <li><a th:href="@{/registration-form}">Register</a></li>
+</ul>
+</body>
+</html>

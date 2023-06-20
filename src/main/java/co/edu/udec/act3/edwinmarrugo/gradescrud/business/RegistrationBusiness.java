@@ -1,8 +1,9 @@
 package co.edu.udec.act3.edwinmarrugo.gradescrud.business;
 
 import co.edu.udec.act3.edwinmarrugo.gradescrud.domain.request.StudentRequest;
-import org.springframework.http.ResponseEntity;
+
+import java.security.NoSuchAlgorithmException;
 
 public interface RegistrationBusiness {
-    ResponseEntity<Void> registerStudent(StudentRequest studentRequest);
+    void registerStudent(StudentRequest studentRequest) throws NoSuchAlgorithmException;
 }
