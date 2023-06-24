@@ -2,6 +2,7 @@ package co.edu.udec.act3.edwinmarrugo.gradescrud.rest;
 
 import co.edu.udec.act3.edwinmarrugo.gradescrud.business.RegistrationBusiness;
 import co.edu.udec.act3.edwinmarrugo.gradescrud.business.UserBusiness;
+import co.edu.udec.act3.edwinmarrugo.gradescrud.domain.request.LoginRequest;
 import co.edu.udec.act3.edwinmarrugo.gradescrud.domain.request.StudentRequest;
 import co.edu.udec.act3.edwinmarrugo.gradescrud.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class UsersController {
     public String registerStudent(
             @ModelAttribute("user") StudentRequest studentRequest) throws NoSuchAlgorithmException {
         registrationBusiness.registerStudent(studentRequest);
-        return "index";
+        return "redirect:/index?registered=true";
     }
     @GetMapping("/registration-form")
     public String registration(
@@ -34,4 +35,15 @@ public class UsersController {
     ){
         return "registration";
     }
+    @GetMapping("/index")
+    public String showIndexPage(){
+        return "index";
+    }
+    @GetMapping("/login")
+    public String login(
+            @ModelAttribute("user") LoginRequest loginRequest
+    ){
+        return "login";
+    }
+
 }

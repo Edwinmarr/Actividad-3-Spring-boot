@@ -11,7 +11,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories(basePackages = "co.edu.udec.act3.edwinmarrugo.gradescrud.repository.dao")
 @EntityScan("co.edu.udec.act3.edwinmarrugo.gradescrud.model")
 public class GradesCrudApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(GradesCrudApplication.class, args);
 	}
